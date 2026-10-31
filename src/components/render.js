@@ -18,6 +18,7 @@ export function renderInvitation(config) {
     program,
     rsvp,
     sections,
+    branding = {},
   } = config;
 
   return `
@@ -325,6 +326,27 @@ export function renderInvitation(config) {
           <p>${escapeHtml(copy.closingBody)}</p>
           <div class="closing__names">${escapeHtml(couple.shortNameBride || couple.brideName)} <span>&amp;</span> ${escapeHtml(couple.shortNameGroom || couple.groomName)}</div>
           <time>${escapeHtml(wedding.displayDate)}</time>
+
+          ${branding && branding.enabled !== false ? `
+            <div class="closing__cta">
+              <a
+                href="${escapeHtml(branding.ctaUrl || 'https://www.instagram.com/noor.invites.nagpur/')}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="closing__cta-btn"
+                aria-label="${escapeHtml(branding.ctaText || 'Create Yours')} on Instagram"
+              >
+                <span class="closing__cta-sparkle" aria-hidden="true">✦</span>
+                <span>${escapeHtml(branding.ctaText || 'Create Yours')}</span>
+                <span class="closing__cta-arrow" aria-hidden="true">↗</span>
+              </a>
+              <p class="closing__designed-by">
+                ${escapeHtml(branding.designerText || 'Designed by')}
+                <a href="${escapeHtml(branding.designerUrl || 'https://www.instagram.com/noor.invites.nagpur/')}" target="_blank" rel="noopener noreferrer">${escapeHtml(branding.designerHandle || '@noor.invites.nagpur')}</a>
+              </p>
+            </div>
+          ` : ""}
+
           <a href="#top" class="back-to-top">Back to the beginning ↑</a>
         </div>
       </footer>

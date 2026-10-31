@@ -253,6 +253,15 @@ meta: {
     closing: true,
   },
 
+  branding: {
+    enabled: true,
+    ctaText: "Create Yours",
+    ctaUrl: "https://www.instagram.com/noor.invites.nagpur/",
+    designerText: "Designed by",
+    designerHandle: "@noor.invites.nagpur",
+    designerUrl: "https://www.instagram.com/noor.invites.nagpur/",
+  },
+
   theme: {
     name: "Royal Heritage",
     colors: {
